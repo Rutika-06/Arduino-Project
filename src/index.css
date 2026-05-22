@@ -1,0 +1,145 @@
+/*
+ * index.css — Global styles, CSS custom properties (design tokens), resets
+ *
+ * WHY CSS VARIABLES (--var)?
+ * They let you change the whole color scheme from one place.
+ * Every component references these tokens, so you never hunt for hardcoded colors.
+ */
+
+/* ─── Design Tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Brand colors */
+  --primary:        #6C63FF;   /* Vibrant purple — main brand color       */
+  --secondary:      #00D4FF;   /* Cyan — used for accents and highlights   */
+  --dark:           #1a1a2e;   /* Near-black — footer bg, dark surfaces   */
+  --dark-mid:       #16213e;   /* Slightly lighter dark — cards inside footer */
+  --bg:             #f0f2ff;   /* Page background — very slight purple tint */
+  --surface:        #ffffff;   /* Card surfaces                            */
+  --text-primary:   #1a1a2e;   /* Main body text                          */
+  --text-muted:     #6b7280;   /* Secondary / label text                  */
+  --text-light:     #e0e0e0;   /* Text on dark backgrounds                */
+  --error:          #ef4444;   /* Form validation errors                  */
+  --success:        #10b981;   /* Success state                           */
+  --border:         #e5e7eb;   /* Subtle borders                          */
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%);
+  --gradient-dark:  linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  --gradient-hero:  linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+
+  /* Spacing scale — consistent rhythm across the page */
+  --space-xs:   8px;
+  --space-sm:  16px;
+  --space-md:  32px;
+  --space-lg:  64px;
+  --space-xl: 96px;
+
+  /* Typography */
+  --font-body:  'Poppins', sans-serif;
+  --font-mono:  'Space Mono', monospace; /* Used for chip/badge labels */
+
+  /* Shadows */
+  --shadow-sm:  0 2px 8px rgba(108, 99, 255, 0.08);
+  --shadow-md:  0 8px 32px rgba(108, 99, 255, 0.15);
+  --shadow-lg:  0 20px 60px rgba(108, 99, 255, 0.25);
+
+  /* Border radius */
+  --radius-sm:  8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ─── Utility classes ────────────────────────────────────────────────── */
+
+/* Constrains content to a max width and centers it */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Keyframe Animations ────────────────────────────────────────────── */
+
+/* Fade + slide up — used for hero text and form card entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Slow float for decorative blobs in hero */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-20px) rotate(5deg); }
+  66%       { transform: translateY(10px) rotate(-3deg); }
+}
+
+/* Spinner rotation for loading state */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pulse glow on the submit button */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(108, 99, 255, 0); }
+}
