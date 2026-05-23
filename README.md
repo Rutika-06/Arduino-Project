@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ArduinoHub Dashboard
 
 A modern, production-ready React + Vite single-page application featuring a glassmorphism navbar, animated hero section, enquiry form with EmailJS integration, and a dark-themed footer.
@@ -114,3 +115,7 @@ arduinohub/
 - Buttons have `aria-busy` during loading and `aria-expanded` for the hamburger
 - Decorative elements use `aria-hidden="true"`
 - External links use `rel="noopener noreferrer"` for security
+=======
+# Arduino-Project
+this project contains an arduino dashboard
+>>>>>>> 4ef9633fd9c86e11b067832eb671802ee2ec9dc8
